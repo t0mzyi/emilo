@@ -178,7 +178,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + i * 0.1, type: "spring", damping: 15 }}
-                className="font-heading font-extrabold text-5xl md:text-7xl text-white tracking-tight leading-[1.1]"
+                className="font-heading font-extrabold text-4xl md:text-7xl text-white tracking-tight leading-[1.1]"
               >
                 {word === "EMIL" ? "EMILO" : word}
               </motion.span>
@@ -188,7 +188,7 @@ const Hero = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 1.5 }}
-            className="text-xl text-ice-muted max-w-lg mb-10 leading-relaxed"
+            className="text-lg md:text-xl text-ice-muted max-w-lg mb-10 leading-relaxed"
           >
             A registered and growing distribution company based in Kochi. Providing purity and reliability to your doorstep.
           </motion.p>
@@ -254,7 +254,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ type: "spring", damping: 20 }}
           >
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-8 leading-tight">
               Built on Quality.<br />Driven by Reliability.
             </h2>
             <div className="space-y-6 text-ice-muted text-lg leading-relaxed">
@@ -320,7 +320,7 @@ const Products = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <SectionTag>What We Distribute</SectionTag>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">Our Product Range</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white">Our Product Range</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -378,7 +378,7 @@ const Services = () => {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <SectionTag>How We Serve Kochi</SectionTag>
-            <h2 className="text-4xl md:text-5xl font-extrabold text-white mb-8">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-8">
               Reliability is our <br /><span className="text-ice-primary">core promise.</span>
             </h2>
             <div className="grid grid-cols-2 gap-4 mt-12">
@@ -440,7 +440,7 @@ const Gallery = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <SectionTag>Our Operations</SectionTag>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">Behind the Purity</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white">Behind the Purity</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
@@ -451,7 +451,7 @@ const Gallery = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`relative rounded-3xl overflow-hidden glass-card group cursor-pointer ${img.span}`}
+              className={`relative rounded-3xl overflow-hidden glass-card group cursor-pointer ${img.span} min-h-[250px]`}
             >
               <div className="absolute inset-0 bg-gradient-to-br from-ice-primary/20 via-transparent to-ice-bg/80 transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-ice-primary/10 mix-blend-overlay group-hover:bg-ice-primary/20 transition-colors" />
@@ -490,7 +490,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <SectionTag>Get In Touch</SectionTag>
-          <h2 className="text-4xl md:text-5xl font-extrabold text-white">Connect with Us</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-white">Connect with Us</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
