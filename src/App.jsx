@@ -65,7 +65,7 @@ const Navbar = () => {
   const backgroundColor = useTransform(
     scrollY,
     [0, 100],
-    ['rgba(10, 14, 23, 0)', 'rgba(10, 14, 23, 0.8)']
+    ['rgba(248, 250, 252, 0)', 'rgba(255, 255, 255, 0.8)']
   );
   const backdropFilter = useTransform(
     scrollY,
@@ -119,7 +119,7 @@ const Navbar = () => {
 
         {/* Mobile Toggle */}
         <button 
-          className="md:hidden text-white"
+          className="md:hidden text-slate-900"
           onClick={() => setIsOpen(!isOpen)}
         >
           {isOpen ? <X size={24} /> : <Menu size={24} />}
@@ -141,7 +141,7 @@ const Navbar = () => {
                 key={link.name}
                 href={link.href}
                 onClick={() => setIsOpen(false)}
-                className="text-2xl font-heading font-bold text-white hover:text-ice-primary transition-colors"
+                className="text-2xl font-heading font-bold text-slate-900 hover:text-ice-primary transition-colors"
               >
                 {link.name}
               </a>
@@ -178,7 +178,7 @@ const Hero = () => {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.5 + i * 0.1, type: "spring", damping: 15 }}
-                className="font-heading font-extrabold text-4xl md:text-7xl text-white tracking-tight leading-[1.1]"
+                className="font-heading font-extrabold text-4xl md:text-7xl text-slate-900 tracking-tight leading-[1.1]"
               >
                 {word === "EMIL" ? "EMILO" : word}
               </motion.span>
@@ -226,7 +226,7 @@ const Hero = () => {
               <div className="absolute inset-4 glass-card rounded-[35%] -rotate-12 opacity-80" />
               <div className="absolute inset-8 glass-card rounded-[45%] rotate-12 flex items-center justify-center overflow-hidden">
                 <div className="absolute w-full h-full bg-gradient-to-br from-ice-primary/40 to-transparent" />
-                <Droplet size={80} className="text-white drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
+                <Droplet size={80} className="text-slate-900 drop-shadow-[0_0_15px_rgba(255,255,255,0.5)]" />
               </div>
             </div>
           </motion.div>
@@ -254,7 +254,7 @@ const About = () => {
             viewport={{ once: true }}
             transition={{ type: "spring", damping: 20 }}
           >
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-8 leading-tight">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8 leading-tight">
               Built on Quality.<br />Driven by Reliability.
             </h2>
             <div className="space-y-6 text-ice-muted text-lg leading-relaxed">
@@ -279,7 +279,7 @@ const About = () => {
               >
                 <div>
                   <p className="text-ice-muted text-sm tracking-widest uppercase mb-1">{stat.label}</p>
-                  <p className="text-3xl font-heading font-extrabold text-white">{stat.value}</p>
+                  <p className="text-3xl font-heading font-extrabold text-slate-900">{stat.value}</p>
                 </div>
                 <div className="w-12 h-12 rounded-full bg-ice-primary/10 flex items-center justify-center text-ice-primary group-hover:bg-ice-primary group-hover:text-ice-bg transition-all duration-300">
                   <ChevronRight />
@@ -316,11 +316,11 @@ const Products = () => {
   ];
 
   return (
-    <section id="products" className="py-24 bg-ice-surface/30">
+    <section id="products" className="py-24 bg-white/50">
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <SectionTag>What We Distribute</SectionTag>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white">Our Product Range</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900">Our Product Range</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-12">
@@ -342,7 +342,7 @@ const Products = () => {
               <div className="mb-8 p-4 w-fit bg-ice-primary/10 rounded-2xl group-hover:scale-110 transition-transform duration-500">
                 {product.icon}
               </div>
-              <h3 className="text-2xl font-bold text-white mb-4">{product.name}</h3>
+              <h3 className="text-2xl font-bold text-slate-900 mb-4">{product.name}</h3>
               <p className="text-ice-muted leading-relaxed">{product.description}</p>
             </motion.div>
           ))}
@@ -378,17 +378,17 @@ const Services = () => {
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <div>
             <SectionTag>How We Serve Kochi</SectionTag>
-            <h2 className="text-3xl md:text-5xl font-extrabold text-white mb-8">
+            <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900 mb-8">
               Reliability is our <br /><span className="text-ice-primary">core promise.</span>
             </h2>
             <div className="grid grid-cols-2 gap-4 mt-12">
                <div className="p-6 glass-card rounded-2xl text-center">
                   <Truck className="mx-auto mb-3 text-ice-primary" size={32} />
-                  <p className="text-white font-bold text-sm">Swift Delivery</p>
+                  <p className="text-slate-900 font-bold text-sm">Swift Delivery</p>
                </div>
                <div className="p-6 glass-card rounded-2xl text-center">
                   <CheckCircle2 className="mx-auto mb-3 text-ice-primary" size={32} />
-                  <p className="text-white font-bold text-sm">Registered Co.</p>
+                  <p className="text-slate-900 font-bold text-sm">Registered Co.</p>
                </div>
             </div>
           </div>
@@ -410,7 +410,7 @@ const Services = () => {
                   transition={{ delay: i * 0.2, duration: 0.8 }}
                   className="absolute left-0 top-0 w-[2px] bg-ice-primary/30 group-hover:bg-ice-primary transition-colors"
                 />
-                <h3 className="text-xl font-bold text-white mb-2 group-hover:text-ice-primary transition-colors">
+                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-ice-primary transition-colors">
                   {service.title}
                 </h3>
                 <p className="text-ice-muted leading-relaxed">
@@ -440,7 +440,7 @@ const Gallery = () => {
       <div className="max-w-7xl mx-auto px-6">
         <div className="text-center mb-16">
           <SectionTag>Our Operations</SectionTag>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white">Behind the Purity</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900">Behind the Purity</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
@@ -456,8 +456,8 @@ const Gallery = () => {
               <div className="absolute inset-0 bg-gradient-to-br from-ice-primary/20 via-transparent to-ice-bg/80 transition-transform duration-700 group-hover:scale-110" />
               <div className="absolute inset-0 bg-ice-primary/10 mix-blend-overlay group-hover:bg-ice-primary/20 transition-colors" />
               
-              <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-ice-bg to-transparent">
-                <p className="text-white font-heading font-bold">{img.label}</p>
+              <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-white to-transparent">
+                <p className="text-slate-900 font-heading font-bold">{img.label}</p>
                 <div className="flex items-center gap-2 text-ice-primary text-xs mt-1">
                   <span>View Details</span>
                   <ExternalLink size={12} />
@@ -490,7 +490,7 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto px-6 relative z-10">
         <div className="text-center mb-16">
           <SectionTag>Get In Touch</SectionTag>
-          <h2 className="text-3xl md:text-5xl font-extrabold text-white">Connect with Us</h2>
+          <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900">Connect with Us</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8 mb-16">
@@ -503,7 +503,7 @@ const Contact = () => {
             <div className="w-12 h-12 bg-ice-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-ice-primary">
               <MapPin size={24} />
             </div>
-            <h4 className="text-white font-bold mb-4">Location</h4>
+            <h4 className="text-slate-900 font-bold mb-4">Location</h4>
             <p className="text-ice-muted text-sm leading-relaxed">
               Building No. 16/1748, Kalathumkadavil House, Edakochi, Ernakulam, Kochi, Kerala - 682010
             </p>
@@ -519,7 +519,7 @@ const Contact = () => {
             <div className="w-12 h-12 bg-ice-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-ice-primary">
               <Phone size={24} />
             </div>
-            <h4 className="text-white font-bold mb-4">Phone</h4>
+            <h4 className="text-slate-900 font-bold mb-4">Phone</h4>
             <p className="text-ice-muted text-lg">+91 90487 77764</p>
             <p className="text-ice-muted text-xs mt-2 italic">Mon - Sat: 9am - 7pm</p>
           </motion.div>
@@ -534,7 +534,7 @@ const Contact = () => {
             <div className="w-12 h-12 bg-ice-primary/10 rounded-full flex items-center justify-center mx-auto mb-6 text-ice-primary">
               <Mail size={24} />
             </div>
-            <h4 className="text-white font-bold mb-4">Email</h4>
+            <h4 className="text-slate-900 font-bold mb-4">Email</h4>
             <p className="text-ice-muted">info@emilenterprises.com</p>
             <p className="text-ice-muted">sales@emilenterprises.com</p>
           </motion.div>
@@ -554,7 +554,7 @@ const Contact = () => {
                   type="text" 
                   required
                   placeholder="Your Name"
-                  className="w-full bg-ice-bg/50 border border-ice-primary/10 rounded-xl px-5 py-4 text-white focus:border-ice-primary/50 focus:ring-1 focus:ring-ice-primary/50 outline-none transition-all"
+                  className="w-full bg-ice-bg/50 border border-ice-primary/10 rounded-xl px-5 py-4 text-slate-900 focus:border-ice-primary/50 focus:ring-1 focus:ring-ice-primary/50 outline-none transition-all"
                   value={formState.name}
                   onChange={(e) => setFormState({ ...formState, name: e.target.value })}
                 />
@@ -565,7 +565,7 @@ const Contact = () => {
                   type="tel" 
                   required
                   placeholder="Your Number"
-                  className="w-full bg-ice-bg/50 border border-ice-primary/10 rounded-xl px-5 py-4 text-white focus:border-ice-primary/50 focus:ring-1 focus:ring-ice-primary/50 outline-none transition-all"
+                  className="w-full bg-ice-bg/50 border border-ice-primary/10 rounded-xl px-5 py-4 text-slate-900 focus:border-ice-primary/50 focus:ring-1 focus:ring-ice-primary/50 outline-none transition-all"
                   value={formState.phone}
                   onChange={(e) => setFormState({ ...formState, phone: e.target.value })}
                 />
@@ -577,7 +577,7 @@ const Contact = () => {
                 required
                 rows="4"
                 placeholder="How can we help you?"
-                className="w-full bg-ice-bg/50 border border-ice-primary/10 rounded-xl px-5 py-4 text-white focus:border-ice-primary/50 focus:ring-1 focus:ring-ice-primary/50 outline-none transition-all resize-none"
+                className="w-full bg-ice-bg/50 border border-ice-primary/10 rounded-xl px-5 py-4 text-slate-900 focus:border-ice-primary/50 focus:ring-1 focus:ring-ice-primary/50 outline-none transition-all resize-none"
                 value={formState.message}
                 onChange={(e) => setFormState({ ...formState, message: e.target.value })}
               />
@@ -601,7 +601,7 @@ const Contact = () => {
 
 const Footer = () => {
   return (
-    <footer className="py-12 border-t border-ice-primary/10 bg-ice-bg">
+    <footer className="py-12 border-t border-ice-primary/10 bg-white">
       <div className="max-w-7xl mx-auto px-6">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 mb-8">
           <div>
