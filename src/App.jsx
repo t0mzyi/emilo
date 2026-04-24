@@ -126,27 +126,58 @@ const Navbar = () => {
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu Overlay */}
       <AnimatePresence>
         {isOpen && (
-          <motion.div
-            initial={{ x: '100%' }}
-            animate={{ x: 0 }}
-            exit={{ x: '100%' }}
-            transition={{ type: 'spring', damping: 25, stiffness: 200 }}
-            className="fixed inset-0 top-20 bg-ice-bg/95 backdrop-blur-xl z-40 md:hidden flex flex-col items-center justify-center gap-8"
-          >
-            {navLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                onClick={() => setIsOpen(false)}
-                className="text-2xl font-heading font-bold text-slate-900 hover:text-ice-primary transition-colors"
-              >
-                {link.name}
-              </a>
-            ))}
-          </motion.div>
+          <>
+            <motion.div
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              onClick={() => setIsOpen(false)}
+              className="fixed inset-0 bg-black/20 backdrop-blur-sm z-40 md:hidden"
+            />
+            <motion.div
+              initial={{ x: '100%' }}
+              animate={{ x: 0 }}
+              exit={{ x: '100%' }}
+              transition={{ type: 'spring', damping: 25, stiffness: 200 }}
+              className="fixed top-0 right-0 bottom-0 w-[80%] max-w-sm bg-white shadow-2xl z-50 md:hidden flex flex-col p-8"
+            >
+              <div className="flex justify-between items-center mb-12">
+                <img src="/logo.png" alt="EMILO" className="h-10 w-auto" />
+                <button onClick={() => setIsOpen(false)} className="text-slate-900">
+                  <X size={24} />
+                </button>
+              </div>
+              <div className="flex flex-col gap-6">
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsOpen(false)}
+                    className="text-xl font-heading font-bold text-slate-900 hover:text-ice-primary transition-colors flex items-center justify-between group"
+                  >
+                    {link.name}
+                    <ChevronRight size={18} className="text-ice-primary opacity-0 group-hover:opacity-100 transition-opacity" />
+                  </a>
+                ))}
+              </div>
+              <div className="mt-auto pt-8 border-t border-slate-100">
+                <p className="text-xs font-bold text-ice-primary uppercase tracking-widest mb-4">Contact info</p>
+                <div className="space-y-3">
+                   <div className="flex items-center gap-3 text-slate-600 text-sm">
+                      <Phone size={16} className="text-ice-primary" />
+                      +91 90487 77764
+                   </div>
+                   <div className="flex items-center gap-3 text-slate-600 text-sm">
+                      <Mail size={16} className="text-ice-primary" />
+                      info@emilenterprises.com
+                   </div>
+                </div>
+              </div>
+            </motion.div>
+          </>
         )}
       </AnimatePresence>
     </motion.nav>
