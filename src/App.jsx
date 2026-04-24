@@ -427,12 +427,12 @@ const Services = () => {
 
 const Gallery = () => {
   const images = [
-    { label: "Warehouse Operations", span: "md:col-span-2 md:row-span-2" },
-    { label: "Delivery Fleet", span: "md:col-span-1 md:row-span-1" },
-    { label: "Quality Assurance", span: "md:col-span-1 md:row-span-1" },
-    { label: "Bulk Inventory", span: "md:col-span-1 md:row-span-2" },
-    { label: "Kochi Distribution", span: "md:col-span-1 md:row-span-1" },
-    { label: "Retail Partners", span: "md:col-span-1 md:row-span-1" },
+    { label: "Warehouse Operations", src: "/gallery_warehouse.png", span: "md:col-span-2 md:row-span-2" },
+    { label: "Delivery Fleet", src: "/gallery_truck.png", span: "md:col-span-1 md:row-span-1" },
+    { label: "Quality Assurance", src: "/gallery_ice.png", span: "md:col-span-1 md:row-span-1" },
+    { label: "Bulk Inventory", src: "/gallery_inventory.png", span: "md:col-span-1 md:row-span-1" },
+    { label: "Kochi Distribution", src: "/gallery_kochi.png", span: "md:col-span-1 md:row-span-1" },
+    { label: "Retail Partners", src: "/gallery_retail.png", span: "md:col-span-4 md:row-span-1" },
   ];
 
   return (
@@ -443,7 +443,7 @@ const Gallery = () => {
           <h2 className="text-3xl md:text-5xl font-extrabold text-slate-900">Behind the Purity</h2>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[200px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[240px] grid-flow-dense">
           {images.map((img, i) => (
             <motion.div
               key={i}
@@ -451,10 +451,13 @@ const Gallery = () => {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className={`relative rounded-3xl overflow-hidden glass-card group cursor-pointer ${img.span} min-h-[250px]`}
+              className={`relative rounded-[32px] overflow-hidden glass-card group cursor-pointer ${img.span} border-[6px] border-white shadow-xl shadow-ice-primary/5`}
             >
-              <div className="absolute inset-0 bg-gradient-to-br from-ice-primary/20 via-transparent to-ice-bg/80 transition-transform duration-700 group-hover:scale-110" />
-              <div className="absolute inset-0 bg-ice-primary/10 mix-blend-overlay group-hover:bg-ice-primary/20 transition-colors" />
+              <div 
+                className="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110"
+                style={{ backgroundImage: `url(${img.src})` }}
+              />
+              <div className="absolute inset-0 bg-gradient-to-br from-ice-primary/20 via-transparent to-white/80 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               
               <div className="absolute inset-x-0 bottom-0 p-6 translate-y-full group-hover:translate-y-0 transition-transform duration-500 bg-gradient-to-t from-white to-transparent">
                 <p className="text-slate-900 font-heading font-bold">{img.label}</p>
