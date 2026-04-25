@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { motion, useScroll, useTransform, AnimatePresence, useSpring, useInView } from 'framer-motion';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { 
   Droplet, 
   IceCream, 
@@ -21,37 +21,7 @@ import {
 
 // --- Components ---
 
-const CustomCursor = () => {
-  const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isHovering, setIsHovering] = useState(false);
 
-  useEffect(() => {
-    const handleMouseMove = (e) => setPosition({ x: e.clientX, y: e.clientY });
-    const handleHover = (e) => setIsHovering(!!e.target.closest('a, button, .interactive'));
-    window.addEventListener('mousemove', handleMouseMove);
-    window.addEventListener('mouseover', handleHover);
-    return () => {
-      window.removeEventListener('mousemove', handleMouseMove);
-      window.removeEventListener('mouseover', handleHover);
-    };
-  }, []);
-
-  const x = useSpring(position.x, { damping: 20, stiffness: 200 });
-  const y = useSpring(position.y, { damping: 20, stiffness: 200 });
-
-  return (
-    <motion.div
-      className="custom-cursor hidden md:block"
-      style={{
-        left: x,
-        top: y,
-        scale: isHovering ? 2.5 : 1,
-        background: isHovering ? 'rgba(0, 41, 255, 0.1)' : '#0029FF',
-        border: isHovering ? '1px solid #0029FF' : 'none',
-      }}
-    />
-  );
-};
 
 const SectionTag = ({ children }) => (
   <motion.div
@@ -67,9 +37,18 @@ const SectionTag = ({ children }) => (
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const { scrollY } = useScroll();
-  const opacity = useTransform(scrollY, [0, 100], [0, 1]);
-  const y = useTransform(scrollY, [0, 100], [-20, 0]);
+
+
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = 'unset';
+    }
+    return () => {
+      document.body.style.overflow = 'unset';
+    };
+  }, [isOpen]);
 
   const navLinks = [
     { name: 'Home', href: '#home' },
@@ -149,18 +128,18 @@ const Hero = () => {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <SectionTag>Premium Distribution</SectionTag>
+          <SectionTag>KOCHI'S TRUSTED DISTRIBUTOR</SectionTag>
           <h1 className="text-6xl md:text-8xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8 uppercase">
-            PURE <br /> <span className="text-ice-primary italic">HYDRATION</span> <br /> REFINED.
+            RELIABLE <br /> <span className="text-ice-primary italic">HYDRATION</span> <br /> FOR KOCHI.
           </h1>
           <p className="text-lg md:text-xl text-slate-500 max-w-lg mb-10 leading-relaxed font-medium">
-            Kochi's leading distributor of high-quality drinking water, premium ice cubes, and refreshing beverages. Excellence delivered.
+            Kochi's leading distributor of high-quality drinking water, premium ice cubes, and refreshing beverages. Quality you can trust, delivered daily.
           </p>
           <div className="flex gap-4">
             <a href="#products" className="ice-button">Explore Products</a>
-            <div className="bg-white px-8 py-4 rounded-full border border-slate-200 text-slate-900 font-bold text-sm shadow-lg hover:shadow-xl transition-all cursor-pointer">
+            <a href="#about" className="bg-white px-8 py-4 rounded-full border border-slate-200 text-slate-900 font-bold text-sm shadow-lg hover:shadow-xl transition-all cursor-pointer">
               Our Story
-            </div>
+            </a>
           </div>
         </motion.div>
 
@@ -225,7 +204,7 @@ const About = () => {
           </div>
 
           <div className="order-1 md:order-2">
-            <SectionTag>Who We Are</SectionTag>
+            <SectionTag>ABOUT US</SectionTag>
             <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-8 leading-tight uppercase">
               DRIVEN BY QUALITY. <br /> DEFINED BY SERVICE.
             </h2>
@@ -255,8 +234,8 @@ const Products = () => {
     <section id="products" className="py-32 px-6 bg-[#F8FAFC]">
       <div className="max-w-7xl mx-auto">
         <div className="text-center mb-20">
-          <SectionTag>Our Range</SectionTag>
-          <h2 className="text-4xl md:text-6xl font-black text-slate-900 uppercase">Liquid Portfolio.</h2>
+          <SectionTag>OUR PRODUCTS</SectionTag>
+          <h2 className="text-4xl md:text-6xl font-black text-slate-900 uppercase">Quality Products.</h2>
         </div>
 
         <div className="grid md:grid-cols-3 gap-8">
@@ -295,8 +274,8 @@ const Gallery = () => {
   return (
     <section id="gallery" className="py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
-        <SectionTag>Operations</SectionTag>
-        <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-16 uppercase">Inside Emilo.</h2>
+        <SectionTag>GALLERY</SectionTag>
+        <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-16 uppercase">Our Facility.</h2>
         
         <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[240px]">
           {images.map((img, i) => (
@@ -328,8 +307,8 @@ const Contact = () => {
       <div className="max-w-7xl mx-auto relative z-10">
         <div className="grid md:grid-cols-2 gap-20">
           <div>
-            <SectionTag>Connect</SectionTag>
-            <h2 className="text-5xl md:text-7xl font-black leading-[0.9] mb-12 uppercase">Reach <br /> Our Flow.</h2>
+            <SectionTag>CONTACT US</SectionTag>
+            <h2 className="text-5xl md:text-7xl font-black leading-[0.9] mb-12 uppercase">GET <br /> IN TOUCH.</h2>
             <div className="space-y-10">
               <div className="flex gap-6 items-center">
                 <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-ice-accent">
@@ -390,8 +369,7 @@ const Footer = () => {
 
 function App() {
   return (
-    <div className="bg-white text-slate-900 selection:bg-ice-primary selection:text-white">
-      <CustomCursor />
+    <div className="bg-white text-slate-900 selection:bg-ice-primary selection:text-white min-h-screen overflow-x-hidden">
       <Navbar />
       <main>
         <Hero />
