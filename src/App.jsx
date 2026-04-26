@@ -173,54 +173,32 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-[100dvh] flex items-center pt-24 md:pt-20 overflow-hidden bg-[#F8FAFC]">
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-ice-primary/5 rounded-l-[100px] md:rounded-l-[200px] pointer-events-none" />
-      
-      <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
+    <section id="home" className="relative min-h-[90vh] flex items-center pt-24 bg-white overflow-hidden">
+      <div className="max-w-7xl mx-auto px-6 w-full relative z-10 text-center md:text-left">
         <motion.div
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="max-w-3xl"
         >
           <SectionTag>KOCHI'S TRUSTED DISTRIBUTOR</SectionTag>
-          <h1 className="text-6xl md:text-8xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8 uppercase">
-            PREMIUM <br /> <span className="text-ice-primary italic">DISTRIBUTION</span> <br /> FOR KOCHI.
+          <h1 className="text-5xl md:text-8xl font-black text-slate-900 leading-[0.95] tracking-tighter mb-8 uppercase">
+            PREMIUM <br /> <span className="text-ice-primary">DISTRIBUTION</span> <br /> FOR KOCHI.
           </h1>
-          <p className="text-lg md:text-xl text-slate-500 max-w-lg mb-10 leading-relaxed font-medium">
+          <p className="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed font-medium">
             Kochi's leading distributor of premium FMCG products, high-quality ice, and refreshing beverages. Excellence in every delivery, every day.
           </p>
-          <div className="flex gap-4">
+          <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
             <a href="#products" className="ice-button">Explore Products</a>
-            <a href="#about" className="bg-white px-8 py-4 rounded-full border border-slate-200 text-slate-900 font-bold text-sm shadow-lg hover:shadow-xl transition-all cursor-pointer">
+            <a href="#about" className="bg-slate-50 px-8 py-4 rounded-full border border-slate-200 text-slate-900 font-bold text-sm shadow-sm hover:shadow-md transition-all cursor-pointer">
               Our Story
             </a>
           </div>
         </motion.div>
-
-        <div className="relative hidden md:block">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5, duration: 1 }}
-            className="aspect-square bg-white rounded-[100px] shadow-2xl p-20 flex items-center justify-center relative overflow-hidden"
-          >
-            <div className="absolute inset-0 bg-gradient-to-br from-ice-primary/10 to-transparent" />
-            <Package size={180} className="text-ice-primary relative z-10" />
-            
-            {/* Animated Floating Elements */}
-            <motion.div 
-              animate={{ y: [0, -20, 0] }}
-              transition={{ duration: 4, repeat: Infinity }}
-              className="absolute top-20 right-20 w-12 h-12 bg-ice-accent/20 rounded-full blur-xl" 
-            />
-            <motion.div 
-              animate={{ y: [0, 20, 0] }}
-              transition={{ duration: 5, repeat: Infinity, delay: 1 }}
-              className="absolute bottom-20 left-20 w-16 h-16 bg-ice-primary/10 rounded-full blur-xl" 
-            />
-          </motion.div>
-        </div>
       </div>
+      
+      {/* Subtle background element */}
+      <div className="absolute top-1/2 right-0 -translate-y-1/2 w-1/3 h-full bg-ice-primary/5 blur-[120px] rounded-full pointer-events-none" />
     </section>
   );
 };
