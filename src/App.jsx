@@ -296,11 +296,10 @@ const Products = () => {
 
 const Gallery = () => {
   const images = [
-    { src: "/gallery_warehouse.png", span: "md:col-span-2 md:row-span-2" },
-    { src: "/gallery_truck.png", span: "md:col-span-1 md:row-span-1" },
-    { src: "/gallery_ice.png", span: "md:col-span-1 md:row-span-1" },
-    { src: "/gallery_inventory.png", span: "md:col-span-1 md:row-span-1" },
-    { src: "/gallery_kochi.png", span: "md:col-span-1 md:row-span-1" },
+    { src: "/warehouse.png", span: "md:col-span-2 md:row-span-2", text: "Local distribution across Kochi and nearby areas." },
+    { src: "/truck.png", span: "md:col-span-2 md:row-span-1", text: "Fast and reliable delivery." },
+    { src: "/inventory.png", span: "md:col-span-1 md:row-span-1", text: "Bulk supply for shops and retailers." },
+    { src: "/map.png", span: "md:col-span-1 md:row-span-1", text: "Event supply (water and ice)." },
   ];
 
   return (
@@ -322,7 +321,11 @@ const Gallery = () => {
                 className="absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-110"
                 style={{ backgroundImage: `url(${img.src})` }}
               />
-              <div className="absolute inset-0 bg-ice-primary/20 opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="absolute inset-0 bg-ice-primary/80 opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center p-8 text-center">
+                <p className="text-white font-black text-xl md:text-2xl uppercase leading-tight transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                  {img.text}
+                </p>
+              </div>
             </motion.div>
           ))}
         </div>
@@ -333,45 +336,68 @@ const Gallery = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 px-6 bg-slate-900 text-white relative overflow-hidden">
-      <div className="absolute top-0 right-0 w-1/3 h-full bg-white/5 -skew-x-12 translate-x-1/2" />
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="grid md:grid-cols-2 gap-20">
-          <div>
-            <SectionTag>CONTACT US</SectionTag>
-            <h2 className="text-5xl md:text-7xl font-black leading-[0.9] mb-12 uppercase">GET <br /> IN TOUCH.</h2>
-            <div className="space-y-10">
-              <div className="flex gap-6 items-center">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-ice-accent">
-                  <MapPin size={20} />
+    <section id="contact" className="py-32 px-6 bg-[#F8FAFC] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto">
+        <div className="bg-slate-900 rounded-[80px] p-12 md:p-24 overflow-hidden relative shadow-3xl">
+          <div className="absolute top-0 right-0 w-1/2 h-full bg-ice-primary/10 -skew-x-12 translate-x-1/2 pointer-events-none" />
+          
+          <div className="grid lg:grid-cols-2 gap-20 relative z-10">
+            <div className="text-white">
+              <SectionTag>CONTACT US</SectionTag>
+              <h2 className="text-5xl md:text-8xl font-black leading-[0.9] mb-12 uppercase">
+                LET'S <br /> CONNECT.
+              </h2>
+              <div className="space-y-8">
+                <div className="flex gap-6 items-center group">
+                  <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center text-ice-accent group-hover:bg-ice-primary transition-colors">
+                    <MapPin size={24} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Office</p>
+                    <p className="text-xl font-bold">Edakochi, Ernakulam, Kochi - 682010</p>
+                  </div>
                 </div>
-                <p className="text-lg font-bold">Edakochi, Ernakulam, Kochi - 682010</p>
-              </div>
-              <div className="flex gap-6 items-center">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-ice-accent">
-                  <Phone size={20} />
+                <div className="flex gap-6 items-center group">
+                  <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center text-ice-accent group-hover:bg-ice-primary transition-colors">
+                    <Phone size={24} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Call Us</p>
+                    <p className="text-3xl font-black">+91 90487 77764</p>
+                  </div>
                 </div>
-                <p className="text-3xl font-black">+91 90487 77764</p>
-              </div>
-              <div className="flex gap-6 items-center">
-                <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center text-ice-accent">
-                  <Mail size={20} />
+                <div className="flex gap-6 items-center group">
+                  <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center text-ice-accent group-hover:bg-ice-primary transition-colors">
+                    <Mail size={24} />
+                  </div>
+                  <div>
+                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Email</p>
+                    <p className="text-xl font-bold">info@emilenterprises.com</p>
+                  </div>
                 </div>
-                <p className="text-xl font-bold">info@emilenterprises.com</p>
               </div>
             </div>
-          </div>
 
-          <div className="bg-white p-12 rounded-[60px] text-slate-900 shadow-2xl">
-            <form className="space-y-8">
-              <input type="text" placeholder="NAME" className="w-full border-b-2 border-slate-100 py-4 focus:border-ice-primary outline-none font-black text-sm tracking-widest placeholder:text-slate-300" />
-              <input type="tel" placeholder="PHONE" className="w-full border-b-2 border-slate-100 py-4 focus:border-ice-primary outline-none font-black text-sm tracking-widest placeholder:text-slate-300" />
-              <textarea placeholder="MESSAGE" rows="3" className="w-full border-b-2 border-slate-100 py-4 focus:border-ice-primary outline-none font-black text-sm tracking-widest placeholder:text-slate-300 resize-none" />
-              <button className="w-full bg-ice-primary text-white py-6 rounded-full font-black text-xs tracking-[0.3em] hover:scale-[1.02] transition-transform shadow-xl shadow-ice-primary/20">
-                SEND REQUEST
-              </button>
-            </form>
+            <div className="bg-white p-10 md:p-16 rounded-[60px] text-slate-900 shadow-2xl">
+              <h3 className="text-2xl font-black mb-8 uppercase tracking-tighter">Send a Message</h3>
+              <form className="space-y-6">
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Full Name</label>
+                  <input type="text" placeholder="YOUR NAME" className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-ice-primary outline-none font-bold text-sm" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Phone Number</label>
+                  <input type="tel" placeholder="YOUR PHONE" className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-ice-primary outline-none font-bold text-sm" />
+                </div>
+                <div className="space-y-2">
+                  <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Message</label>
+                  <textarea placeholder="HOW CAN WE HELP?" rows="3" className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-ice-primary outline-none font-bold text-sm resize-none" />
+                </div>
+                <button className="w-full bg-ice-primary text-white py-6 rounded-full font-black text-xs tracking-[0.3em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-ice-primary/20 mt-4">
+                  SEND REQUEST
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       </div>
@@ -401,7 +427,7 @@ const Footer = () => {
 
 function App() {
   return (
-    <div className="bg-white text-slate-900 selection:bg-ice-primary selection:text-white min-h-screen overflow-x-clip">
+    <div className="bg-white text-slate-900 selection:bg-ice-primary selection:text-white min-h-screen">
       <Navbar />
       <main>
         <Hero />
