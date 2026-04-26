@@ -378,22 +378,22 @@ const Contact = () => {
               </div>
             </div>
 
-            <div className="bg-white p-10 md:p-16 rounded-[60px] text-slate-900 shadow-2xl">
-              <h3 className="text-2xl font-black mb-8 uppercase tracking-tighter">Send a Message</h3>
-              <form className="space-y-6">
-                <div className="space-y-2">
+            <div className="bg-white p-8 md:p-10 rounded-[40px] text-slate-900 shadow-2xl lg:max-w-md ml-auto">
+              <h3 className="text-xl font-black mb-6 uppercase tracking-tighter">Send a Message</h3>
+              <form className="space-y-4">
+                <div className="space-y-1">
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Full Name</label>
-                  <input type="text" placeholder="YOUR NAME" className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-ice-primary outline-none font-bold text-sm" />
+                  <input type="text" placeholder="YOUR NAME" className="w-full bg-slate-50 border-none rounded-xl py-3 px-5 focus:ring-2 focus:ring-ice-primary outline-none font-bold text-sm" />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Phone Number</label>
-                  <input type="tel" placeholder="YOUR PHONE" className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-ice-primary outline-none font-bold text-sm" />
+                  <input type="tel" placeholder="YOUR PHONE" className="w-full bg-slate-50 border-none rounded-xl py-3 px-5 focus:ring-2 focus:ring-ice-primary outline-none font-bold text-sm" />
                 </div>
-                <div className="space-y-2">
+                <div className="space-y-1">
                   <label className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Message</label>
-                  <textarea placeholder="HOW CAN WE HELP?" rows="3" className="w-full bg-slate-50 border-none rounded-2xl py-4 px-6 focus:ring-2 focus:ring-ice-primary outline-none font-bold text-sm resize-none" />
+                  <textarea placeholder="HOW CAN WE HELP?" rows="2" className="w-full bg-slate-50 border-none rounded-xl py-3 px-5 focus:ring-2 focus:ring-ice-primary outline-none font-bold text-sm resize-none" />
                 </div>
-                <button className="w-full bg-ice-primary text-white py-6 rounded-full font-black text-xs tracking-[0.3em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-ice-primary/20 mt-4">
+                <button className="w-full bg-ice-primary text-white py-4 rounded-full font-black text-xs tracking-[0.3em] hover:scale-[1.02] active:scale-95 transition-all shadow-xl shadow-ice-primary/20 mt-2">
                   SEND REQUEST
                 </button>
               </form>
