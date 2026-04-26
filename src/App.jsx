@@ -1,9 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { 
-  Droplet, 
-  IceCream, 
-  Wine, 
+  Package,
+  ShoppingBag,
+  Box,
   Truck, 
   MapPin, 
   Phone, 
@@ -63,9 +63,9 @@ const Navbar = () => {
       <motion.nav
         initial={{ y: -100 }}
         animate={{ y: 0 }}
-        className="fixed top-0 left-0 right-0 z-50 p-6 flex justify-center pointer-events-none"
+        className="fixed top-0 left-0 right-0 z-50 p-4 md:p-6 flex justify-center pointer-events-none"
       >
-        <div className="max-w-5xl w-full flex justify-between items-center bg-white/70 backdrop-blur-xl border border-white/40 rounded-full px-8 py-3 shadow-xl pointer-events-auto">
+        <div className="max-w-5xl w-full flex justify-between items-center bg-white/80 backdrop-blur-md border border-white/40 rounded-full px-6 md:px-8 py-3 shadow-xl pointer-events-auto">
           <img src="/logo.png" alt="EMILO" className="h-10 w-auto" />
           
           <div className="hidden md:flex items-center gap-8">
@@ -119,8 +119,8 @@ const Navbar = () => {
 
 const Hero = () => {
   return (
-    <section id="home" className="relative min-h-screen flex items-center pt-20 overflow-hidden bg-[#F8FAFC]">
-      <div className="absolute top-0 right-0 w-1/2 h-full bg-ice-primary/5 rounded-l-[200px] pointer-events-none" />
+    <section id="home" className="relative min-h-[100dvh] flex items-center pt-24 md:pt-20 overflow-hidden bg-[#F8FAFC]">
+      <div className="absolute top-0 right-0 w-1/2 h-full bg-ice-primary/5 rounded-l-[100px] md:rounded-l-[200px] pointer-events-none" />
       
       <div className="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center relative z-10">
         <motion.div
@@ -130,10 +130,10 @@ const Hero = () => {
         >
           <SectionTag>KOCHI'S TRUSTED DISTRIBUTOR</SectionTag>
           <h1 className="text-6xl md:text-8xl font-black text-slate-900 leading-[0.9] tracking-tighter mb-8 uppercase">
-            RELIABLE <br /> <span className="text-ice-primary italic">HYDRATION</span> <br /> FOR KOCHI.
+            PREMIUM <br /> <span className="text-ice-primary italic">DISTRIBUTION</span> <br /> FOR KOCHI.
           </h1>
           <p className="text-lg md:text-xl text-slate-500 max-w-lg mb-10 leading-relaxed font-medium">
-            Kochi's leading distributor of high-quality drinking water, premium ice cubes, and refreshing beverages. Quality you can trust, delivered daily.
+            Kochi's leading distributor of premium FMCG products, high-quality ice, and refreshing beverages. Excellence in every delivery, every day.
           </p>
           <div className="flex gap-4">
             <a href="#products" className="ice-button">Explore Products</a>
@@ -151,7 +151,7 @@ const Hero = () => {
             className="aspect-square bg-white rounded-[100px] shadow-2xl p-20 flex items-center justify-center relative overflow-hidden"
           >
             <div className="absolute inset-0 bg-gradient-to-br from-ice-primary/10 to-transparent" />
-            <Droplet size={180} className="text-ice-primary relative z-10" />
+            <Package size={180} className="text-ice-primary relative z-10" />
             
             {/* Animated Floating Elements */}
             <motion.div 
@@ -210,10 +210,10 @@ const About = () => {
             </h2>
             <div className="space-y-6 text-slate-500 text-lg leading-relaxed font-medium">
               <p>
-                EMILO ENTERPRISES PRIVATE LIMITED is a registered distribution company based in Kochi, specialized in the supply of premium drinking water, ice cubes, and beverages.
+                EMILO ENTERPRISES PRIVATE LIMITED is a registered distribution company based in Kochi, specialized in the supply of premium FMCG products, ice, and beverages.
               </p>
               <p>
-                Our mission is to bridge the gap between production and accessibility, ensuring that every household, retailer, and event in Kochi has access to pure, safe refreshments whenever they need it.
+                Our mission is to bridge the gap between production and accessibility, ensuring that every household, retailer, and event in Kochi has access to high-quality goods whenever they need them.
               </p>
             </div>
           </div>
@@ -225,9 +225,9 @@ const About = () => {
 
 const Products = () => {
   const products = [
-    { name: "25L Water", desc: "Purity in every drop. Sourced with the highest standards.", icon: <Droplet size={40} />, tag: "Standard" },
-    { name: "Premium Ice", desc: "Crystal clear, food-grade ice cubes for any occasion.", icon: <IceCream size={40} />, tag: "Ice" },
-    { name: "Beverages", desc: "Refreshing bottled drinks to beat the heat.", icon: <Wine size={40} />, tag: "Drinks" },
+    { name: "FMCG Goods", desc: "High-quality consumer products from leading brands.", icon: <Package size={40} />, tag: "Essential" },
+    { name: "Premium Ice", desc: "Crystal clear, food-grade ice cubes for any occasion.", icon: <Box size={40} />, tag: "Ice" },
+    { name: "Beverages", desc: "Refreshing bottled drinks to beat the heat.", icon: <ShoppingBag size={40} />, tag: "Drinks" },
   ];
 
   return (
@@ -369,7 +369,7 @@ const Footer = () => {
 
 function App() {
   return (
-    <div className="bg-white text-slate-900 selection:bg-ice-primary selection:text-white min-h-screen overflow-x-hidden">
+    <div className="bg-white text-slate-900 selection:bg-ice-primary selection:text-white min-h-screen overflow-x-clip">
       <Navbar />
       <main>
         <Hero />
