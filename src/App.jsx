@@ -82,10 +82,10 @@ const SectionTag = ({ children }) => (
     initial={{ opacity: 0, x: -20 }}
     whileInView={{ opacity: 1, x: 0 }}
     viewport={{ once: true }}
-    className="flex items-center gap-3 mb-6"
+    className="flex items-center gap-3 mb-6 overflow-hidden"
   >
-    <div className="h-[1px] w-8 bg-ice-primary" />
-    <span className="text-ice-primary text-[10px] font-black tracking-[0.4em] uppercase">{children}</span>
+    <div className="h-[1px] w-8 bg-ice-primary shrink-0" />
+    <span className="text-ice-primary text-[9px] md:text-[10px] font-black tracking-[0.2em] md:tracking-[0.4em] uppercase whitespace-nowrap">{children}</span>
   </motion.div>
 );
 
@@ -182,10 +182,10 @@ const Hero = () => {
           className="max-w-3xl"
         >
           <SectionTag>KOCHI'S TRUSTED DISTRIBUTOR</SectionTag>
-          <h1 className="text-5xl md:text-8xl font-black text-slate-900 leading-[0.95] tracking-tighter mb-8 uppercase">
+          <h1 className="text-4xl md:text-8xl font-black text-slate-900 leading-[0.95] tracking-tighter mb-8 uppercase">
             PREMIUM <br /> <span className="text-ice-primary">DISTRIBUTION</span> <br /> FOR KOCHI.
           </h1>
-          <p className="text-lg md:text-xl text-slate-500 mb-10 leading-relaxed font-medium">
+          <p className="text-base md:text-xl text-slate-500 mb-10 leading-relaxed font-medium">
             Kochi's leading distributor of premium FMCG products, high-quality ice, and refreshing beverages. Excellence in every delivery, every day.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
@@ -222,7 +222,7 @@ const About = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-[#F8FAFC] p-10 rounded-[40px] flex justify-between items-center group hover:bg-ice-primary transition-all duration-500"
+                className="bg-[#F8FAFC] p-6 md:p-10 rounded-[30px] md:rounded-[40px] flex justify-between items-center group hover:bg-ice-primary transition-all duration-500"
               >
                 <div>
                   <p className="text-[10px] font-black tracking-widest text-slate-400 uppercase mb-2 group-hover:text-white/50">{stat.label}</p>
@@ -278,7 +278,7 @@ const Products = () => {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: i * 0.1 }}
-              className="bg-white p-12 rounded-[50px] shadow-xl hover:shadow-2xl transition-all group cursor-pointer"
+              className="bg-white p-8 md:p-12 rounded-[40px] md:rounded-[50px] shadow-xl hover:shadow-2xl transition-all group cursor-pointer"
             >
               <div className="w-20 h-20 bg-ice-primary/10 rounded-[30px] flex items-center justify-center text-ice-primary mb-8 group-hover:bg-ice-primary group-hover:text-white transition-all duration-500">
                 {p.icon}
@@ -306,9 +306,9 @@ const Gallery = () => {
     <section id="gallery" className="py-32 px-6 bg-white">
       <div className="max-w-7xl mx-auto">
         <SectionTag>GALLERY</SectionTag>
-        <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-16 uppercase">Our Facility.</h2>
+        <h2 className="text-4xl md:text-6xl font-black text-slate-900 mb-12 md:mb-16 uppercase">Our Facility.</h2>
         
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-6 auto-rows-[240px]">
+        <div className="grid grid-cols-1 md:grid-cols-4 gap-4 md:gap-6 auto-rows-[200px] md:auto-rows-[240px]">
           {images.map((img, i) => (
             <motion.div
               key={i}
@@ -336,49 +336,49 @@ const Gallery = () => {
 
 const Contact = () => {
   return (
-    <section id="contact" className="py-32 px-6 bg-[#F8FAFC] relative overflow-hidden">
+    <section id="contact" className="py-16 md:py-32 px-4 md:px-6 bg-[#F8FAFC] relative overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="bg-slate-900 rounded-[80px] p-12 md:p-24 overflow-hidden relative shadow-3xl">
+        <div className="bg-slate-900 rounded-[40px] md:rounded-[80px] p-8 md:p-24 overflow-hidden relative shadow-3xl">
           <div className="absolute top-0 right-0 w-1/2 h-full bg-ice-primary/10 -skew-x-12 translate-x-1/2 pointer-events-none" />
           
-          <div className="grid lg:grid-cols-2 gap-20 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 relative z-10">
             <div className="text-white">
               <SectionTag>CONTACT US</SectionTag>
-              <h2 className="text-5xl md:text-8xl font-black leading-[0.9] mb-12 uppercase">
+              <h2 className="text-4xl md:text-8xl font-black leading-[0.9] mb-8 md:mb-12 uppercase">
                 LET'S <br /> CONNECT.
               </h2>
-              <div className="space-y-8">
-                <div className="flex gap-6 items-center group">
-                  <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center text-ice-accent group-hover:bg-ice-primary transition-colors">
-                    <MapPin size={24} />
+              <div className="space-y-6 md:space-y-8">
+                <div className="flex gap-4 md:gap-6 items-center group">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-2xl md:rounded-3xl flex items-center justify-center text-ice-accent group-hover:bg-ice-primary transition-colors">
+                    <MapPin size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div>
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Office</p>
-                    <p className="text-xl font-bold">Edakochi, Ernakulam, Kochi - 682010</p>
+                    <p className="text-lg md:text-xl font-bold">Edakochi, Ernakulam, Kochi - 682010</p>
                   </div>
                 </div>
-                <div className="flex gap-6 items-center group">
-                  <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center text-ice-accent group-hover:bg-ice-primary transition-colors">
-                    <Phone size={24} />
+                <div className="flex gap-4 md:gap-6 items-center group">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-2xl md:rounded-3xl flex items-center justify-center text-ice-accent group-hover:bg-ice-primary transition-colors">
+                    <Phone size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div>
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Call Us</p>
-                    <p className="text-3xl font-black">+91 90487 77764</p>
+                    <p className="text-2xl md:text-3xl font-black">+91 90487 77764</p>
                   </div>
                 </div>
-                <div className="flex gap-6 items-center group">
-                  <div className="w-16 h-16 bg-white/10 rounded-3xl flex items-center justify-center text-ice-accent group-hover:bg-ice-primary transition-colors">
-                    <Mail size={24} />
+                <div className="flex gap-4 md:gap-6 items-center group">
+                  <div className="w-12 h-12 md:w-16 md:h-16 bg-white/10 rounded-2xl md:rounded-3xl flex items-center justify-center text-ice-accent group-hover:bg-ice-primary transition-colors">
+                    <Mail size={20} className="md:w-6 md:h-6" />
                   </div>
                   <div>
                     <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest mb-1">Email</p>
-                    <p className="text-xl font-bold">info@emilenterprises.com</p>
+                    <p className="text-lg md:text-xl font-bold">info@emilenterprises.com</p>
                   </div>
                 </div>
               </div>
             </div>
 
-            <div className="bg-white p-8 md:p-10 rounded-[40px] text-slate-900 shadow-2xl lg:max-w-md ml-auto">
+            <div className="bg-white p-6 md:p-10 rounded-[32px] md:rounded-[40px] text-slate-900 shadow-2xl lg:max-w-md mx-auto lg:ml-auto w-full">
               <h3 className="text-xl font-black mb-6 uppercase tracking-tighter">Send a Message</h3>
               <form className="space-y-4">
                 <div className="space-y-1">
